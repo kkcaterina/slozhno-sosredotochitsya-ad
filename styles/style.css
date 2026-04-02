@@ -1,5 +1,202 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  gap: 55px;
+  padding: 10px;
+  block-size: 100vh;
+  min-block-size: 668px;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  border-inline-end: 1px solid var(--rectangle-color);
+  border-block-start: 1px solid var(--rectangle-color);
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  border-inline-start: 1px solid var(--rectangle-color);
+  border-block-end: 1px solid var(--rectangle-color);
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.record {
+  position: absolute;
+  top: 10px;
+  right: 19px;
+}
+
+.record::before {
+  content: "REC";
+  position: absolute;
+  color: var(--accent-color);
+  font-size: var(--text-font-size);
+  line-height: 25px;
+  inset-inline-end: 19px;
+}
+
+.record::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  background-color: var(--accent-color);
+  inset-block-start: 8px;
+  inset-inline-end: 0;
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  padding-top: 65px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 1px 13px 5px 12px;
+  color: var(--button-color);
+  font-size: var(--text-font-size);
+  line-height: 18px;
+  text-transform: lowercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid currentColor;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:not(.header__theme-menu-button_active):hover {
+  border: 1px solid var(--button-hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--button-color);
+}
+
+.header__title {
+  align-self: end;
+  color: var(--main-title-color);
+  font-weight: var(--bold-font-weight);
+  font-size: var(--main-title-font-size);
+  line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.title-decor {
+  color: var(--title-text-color);
+  font-weight: var(--bold-font-weight);
+  font-size: var(--text-font-size);
+  line-height: 23.4px;
+  background-color: var(--accent-color);
+  block-size: max-content;
+}
+
+.subtitle-decor {
+  font-weight: var(--normal-font-weight);
+}
+
+.page-content {
+  display: grid;
+  row-gap: 50px;
+  padding: 40px 10px 0 10px;
+}
+
+.section-block__link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.section-block__link:hover {
+  border-block-end: 1px solid var(--description-text-color);
+}
+
+.section-block__link:focus {
+  outline: none;
+}
+
+.section-block__link:focus-visible {
+  outline: 1px solid var(--description-text-color);
+}
+
+.section-block__item:not(:last-child),
+.title-accent,
+.section-block__title {
+  margin-block-end: 20px;
+}
+
+.section-block__title {
+  color: var(--section-text-color);
+  font-weight: var(--bold-font-weight);
+  font-size: var(--text-font-size);
+  line-height: 23.4px;
+}
+
+.section-block__text {
+  margin-block-start: 10px;
+  color: var(--description-text-color);
+  font-weight: var(--normal-font-weight);
+  font-size: var(--text-font-size);
+  line-height: 23.4px;
+}
+
+.images-block {
+  display: grid;
+  row-gap: 10px;
+}
+
+.section-block__image {
+  width: 100%;
+}
+
+.footer {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-block-start: 40px;
+  padding: 0 13px 0 14px;
+  block-size: 100vh;
+  min-block-size: 668px;
+}
+
+.footer__title {
+  color: var(--main-title-color);
+  font-size: var(--main-title-font-size);
+  line-height: 83%;
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
